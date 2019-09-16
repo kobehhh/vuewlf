@@ -1,0 +1,263 @@
+
+// 全局公共样式
+
+/*          ====================      reset css      ====================           */ 
+
+html,body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select{margin:0;padding:0}
+body{font-family: PingFang SC,Roboto,Helvetica Neue,Segoe UI,Verdana,Tahoma,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;}
+address,cite,dfn,em,var{font-style:normal;}
+code,kbd,pre,samp{font-family:couriernew, courier, monospace;}
+small{font-size:12px;}
+ul,ol{list-style:none;}
+a{text-decoration:none;}
+a:hover{text-decoration:none;}
+sup {vertical-align:text-top;}
+sub{vertical-align:text-bottom;}
+legend{color:#000;}
+fieldset,img{border:0;}
+button,input,select,textarea{font-size:100%;}
+table{border-collapse:collapse;border-spacing:0;}
+.clean:after{content: '';display: block;line-height: 0;height: 0;visibility: hidden;clear: both;}
+.fl{float: left;}
+.fr{float: right;}
+.cursor-p{cursor: pointer;}
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+/*          ====================      布局      ====================           */ 
+
+.common-search-info{
+  display: flex;
+  /*padding: 15px 20px;*/
+  -webkit-box-align: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 24px;
+  background: #fff;
+  .common-search-info__left{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .common-search-info__right{
+    display: flex;
+    align-items: center;
+  }
+  .search-item{
+    margin:5px 0;
+    margin-right: 15px;
+  }
+}
+
+.common-action-bar{
+  padding: 10px 20px;
+  .common-btn{
+    margin-right: 10px;
+  }
+}
+
+.common-table-content{
+  background: #fff;
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 300px);
+  .filter-bar{
+    display: flex;
+    padding: 10px 18px;
+    .filter-bar-info{
+      margin-right: 45px;
+      line-height: 23px;
+    }
+  }
+}
+
+// 新增债券公共
+.common-bond-tabs{
+  display: flex;
+  // border-bottom: 1px solid #d9d9d9;
+  align-items: center;
+  justify-content: space-between;
+  .bond-tab-inner{
+    display: flex;
+    .tab-item{
+      height: 30px;
+      line-height: 30px;
+      padding: 0 10px;
+      align-items: center;
+      border: 1px solid #d9d9d9;
+      border-bottom: none;
+      margin-right: 3px;
+      border-radius: 5px 5px 0 0;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .tab-item.active{
+      background: #108ee9;
+      color: #fff;
+      border-color: #0b66a8;
+    }
+  }
+}
+
+.common-bond-content{
+  display: flex;
+  .common-bond-content___left{
+    flex: 1;
+    background: #fff;
+    padding-bottom: 20px;
+    border: 1px solid #E4E4E4;
+    border-radius: 4px;
+    border-top-left-radius: 0px;
+    .item-input-tips{
+      color: #999999;
+      span{
+        color: #CC9966;
+        margin-left: 10px;
+      }
+    }
+    .bond-input-padding{
+      font-size: 12px;
+      color: #999999;
+      padding: 0 2px;
+      flex: none;
+    }
+    .bond-input-warpper{
+      flex: 1;
+    }
+  }
+  .common-bond-content___right{
+    width: 380px;
+    margin-left: 10px;
+    background: #fff;
+    border: 1px solid #E4E4E4;
+    border-radius: 4px;
+  }
+  .bond-form-group{
+    display: flex;
+    padding-right: 35px;
+  }
+  .bond-form-item{
+    display: flex;
+    flex: 0 0 33.3%;
+    margin-top: 20px;
+    position: relative;
+    align-items: center;
+    .common-bond-input-group{
+      position:relative;
+    }
+    .item-lable{
+      font-family: 'PingFangSC-Regular', 'PingFang SC';
+      min-width: 115px;
+      text-align: right;
+      margin-right: 10px;
+      line-height:28px;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 12px;
+      color: #666666;
+    }
+    .item-fixed-right__tips{
+      position: absolute;
+      font-size: 12px;
+      color: #999999;
+      line-height: 28px;
+      text-align: left;
+      min-width: 30px;
+      flex: 30px;
+      left: 100%;
+      margin-left: 6px;
+    }
+  }
+}
+
+.common-bond-footer{
+  margin-top: 10px;
+  background: #fff;
+  border-radius: 4px;
+}
+
+.bond-footer__bar{
+  margin-top: 10px;
+}
+
+/*          ====================      按钮      ====================           */ 
+
+.common-btn {
+  background-color: #F3F3F3;
+  border: 1px solid #D9D9D9;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-family: 'PingFangSC-Regular', 'PingFang SC';
+  font-weight: 400;
+  font-style: normal;
+  font-size: 12px;
+  color: #666666;
+  text-align: left;
+  line-height: 18px;
+  padding: 5px 8px;
+  cursor: pointer;
+  outline: none;
+}
+.common-btn-primary{
+  background-color: #108EE9;
+  border: 1px solid #108EE9;
+  border-radius: 4px;
+  color: #fff;
+}
+.common-action-btn{
+  height: 20px;
+  border: 1px solid #108EE9;
+  background-color: #108EE9;
+  border-radius: 4px;
+  margin: 0 4px;
+  font-size: 12px;
+  outline: none;
+  cursor: pointer;
+  padding: 0 4px;
+  color: #fff;
+}
+
+/*          ====================      输入框      ====================           */ 
+
+.common-bond-input{
+  width: 160px;
+  height: 30px;
+  border: 1px solid #D7D7D7;
+  font-family: 'PingFangHK-Regular', 'PingFang HK';
+  font-weight: 400;
+  border-radius: 4px;
+  padding: 0 8px;
+}
+
+.common-bond-input:foucs{
+  outline: none;
+}
+
+.common-bond-textarea{
+  width: 606px;
+  height: 65px;
+  border: 1px solid #D7D7D7;
+  font-family: 'PingFangHK-Regular', 'PingFang HK';
+  font-weight: 400;
+  border-radius: 4px;
+  padding: 5px 8px;
+}
+
+.common-bond-input.small{
+  width: 83px;
+}
+
+.common-bond-input:disabled{
+  background: #eee;
+  cursor: not-allowed;
+}
+
+/*          ====================      重置      ====================           */ 
+
+.ivu-input-number-handler-wrap{
+  display: none !important;
+}
