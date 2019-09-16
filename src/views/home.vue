@@ -2,11 +2,22 @@
   <div class="home">
     <!-- <Table  
       height="400" :columns="columns1" :data="data1" id="tab"></Table> -->
+      <SearchPanel>
+        <template v-slot:default><Input 
+            placeholder="角色名称"  /></template>
+        <template v-slot:right>
+          <Button 
+            type="primary" >
+            新增
+          </Button>
+        </template>
+      </SearchPanel>
   </div>
 </template>
 
 <script>
 import { getUser } from '@/api/service.js'
+import SearchPanel from '@/components/common-search/index.js'
 export default {
   name: 'Home',
   data() {
@@ -89,7 +100,7 @@ dom:''
   created() {
   },
   components: {
-
+    SearchPanel
   },
   computed: {
 
