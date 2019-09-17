@@ -6,13 +6,58 @@ const resolve = (dir) => {
 }
 
 module.exports = {
+  // module: {
+  //   rules: [
+  //     {
+  //       test: /\.svg$/,
+  //       loader: 'svg-sprite-loader',
+  //       include: [resolve('src/icon')],
+  //       options: {
+  //       symbolId: 'icon-[name]'
+  //       }
+  //     },
+  //     {
+  //       test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+  //       loader: 'url-loader',
+  //       exclude: [resolve('src/icons')],
+  //       options: {
+  //       limit: 10000,
+  //       name: utils.assetsPath('img/[name].[hash:7].[ext]')
+  //       }
+  //     }
+  //   ]
+  // },
+  chainWebpack: config => {
+    const svgRule = config.module.rule('svg')
+    // 清除已有的所有 loader。
+    // 如果你不这样做，接下来的 loader 会附加在该规则现有的 loader 之后。
+    svgRule.uses.clear()
+    svgRule
+      .test(/\.svg$/)
+      .include.add(path.resolve(__dirname, './src/icons'))
+      .end()
+      .use('svg-sprite-loader')
+      .loader('svg-sprite-loader')
+      .options({
+        symbolId: 'icon-[name]'
+      })
+    const fileRule = config.module.rule('file')
+    fileRule.uses.clear()
+    fileRule
+      .test(/\.svg$/)
+      .exclude.add(path.resolve(__dirname, './src/icons'))
+      .end()
+      .use('file-loader')
+      .loader('file-loader')
+  },
   css: {
     loaderOptions: { // 向 CSS 相关的 loader 传递选项
       less: {
         javascriptEnabled: true
-      }
+      },
     }
   },
+  
   chainWebpack: (config)=>{
     // 初始化快捷路径
     config.resolve.alias
