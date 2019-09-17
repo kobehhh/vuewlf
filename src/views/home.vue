@@ -7,23 +7,29 @@
             placeholder="角色名称"  /></template>
         <template v-slot:right>
           <Button 
-            type="primary" >
+            type="primary" 
+            @click="add">
             新增
           </Button>
         </template>
       </SearchPanel>
+      <count-to :start-val="0" :end-val="number" :duration="2600"></count-to>
+          <svg-icon icon-class="peoples" class-name="card-panel-icon" />
   </div>
 </template>
 
 <script>
 import { getUser } from '@/api/service.js'
 import SearchPanel from '@/components/common-search/index.js'
+import CountTo from 'vue-count-to'
+
 export default {
   name: 'Home',
   data() {
     return {
       currentPage :1,
       pageSize:10,
+      number:102400,
       columns1: [
   {
     title: "ID",
@@ -100,7 +106,8 @@ dom:''
   created() {
   },
   components: {
-    SearchPanel
+    SearchPanel,
+    CountTo
   },
   computed: {
 
@@ -122,6 +129,9 @@ dom:''
         }
       })
     },
+    add() {
+      this.number = this.number + 100
+    }
     // getMore() {
     //   this.dom = document.querySelector("#tab")
     //   this.dom.addEventListener("scroll", function() {
@@ -141,14 +151,18 @@ dom:''
 
 </script>
 <style lang="less" scoped>
+.bg(@color:#000){
+  background: @color;
+  padding: 100px;
+}
 .home{
   position: relative;
-  .home-bg {
+  &.home-bg {
     position: absolute;
     width: 100%;
     height: 100%;
     z-index: 1;
-    img {
+    &>img {
       width: 100%;
       height: 100%;
     }

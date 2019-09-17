@@ -5,11 +5,11 @@
     </div>
     <div class="login-contariner">
       <h1>系统</h1>
-      <Form action="" clsss="form">
+      <Form action="" clsss="form" >
         <label class="title">用户名称</label>
         <input type="text" class="login-input" v-model="loginName" placeholder="请输入用户名" />
         <label class="title">输入密码</label>
-        <input type="password" class="login-input" v-model="password" placeholder="请输入密码" />
+        <input :type="passwordType" class="login-input" v-model="password" placeholder="请输入密码" />
         <button type="button" class="login-btn" @click="loginSubmit()">登录</button>
       </Form>
     </div>
@@ -25,7 +25,8 @@ export default {
     return {
       bgImg:bgImg,
       loginName:'',
-      password:''
+      password:'',
+      passwordType:'password'
     }
   },
   methods:{
@@ -63,6 +64,9 @@ export default {
       setTimeout(function() {
         that.$router.push({name:'home'})
       },200)
+    },
+    showPwd() {
+      this.passwordType = ''
     }
   }
 }
